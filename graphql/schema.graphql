@@ -1,0 +1,841 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+"The root type for creating and mutating data"
+type Mutation {
+    "Deletes zero or more records from the collection"
+    deleteFromjurisdictionCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the critera"
+        filter: jurisdictionFilter
+    ): jurisdictionDeleteResponse!
+    "Deletes zero or more records from the collection"
+    deleteFrommonthly_ratesCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the critera"
+        filter: monthly_ratesFilter
+    ): monthly_ratesDeleteResponse!
+    "Deletes zero or more records from the collection"
+    deleteFrommonthly_rates_typeCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the critera"
+        filter: monthly_rates_typeFilter
+    ): monthly_rates_typeDeleteResponse!
+    "Deletes zero or more records from the collection"
+    deleteFromparking_lots_accessCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the critera"
+        filter: parking_lots_accessFilter
+    ): parking_lots_accessDeleteResponse!
+    "Deletes zero or more records from the collection"
+    deleteFromparking_lots_addressCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the critera"
+        filter: parking_lots_addressFilter
+    ): parking_lots_addressDeleteResponse!
+    "Deletes zero or more records from the collection"
+    deleteFromparking_lots_generalCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the critera"
+        filter: parking_lots_generalFilter
+    ): parking_lots_generalDeleteResponse!
+    "Adds one or more `jurisdictionInsertResponse` records to the collection"
+    insertIntojurisdictionCollection(objects: [jurisdictionInsertInput!]!): jurisdictionInsertResponse
+    "Adds one or more `monthly_ratesInsertResponse` records to the collection"
+    insertIntomonthly_ratesCollection(objects: [monthly_ratesInsertInput!]!): monthly_ratesInsertResponse
+    "Adds one or more `monthly_rates_typeInsertResponse` records to the collection"
+    insertIntomonthly_rates_typeCollection(objects: [monthly_rates_typeInsertInput!]!): monthly_rates_typeInsertResponse
+    "Adds one or more `parking_lots_accessInsertResponse` records to the collection"
+    insertIntoparking_lots_accessCollection(objects: [parking_lots_accessInsertInput!]!): parking_lots_accessInsertResponse
+    "Adds one or more `parking_lots_addressInsertResponse` records to the collection"
+    insertIntoparking_lots_addressCollection(objects: [parking_lots_addressInsertInput!]!): parking_lots_addressInsertResponse
+    "Adds one or more `parking_lots_generalInsertResponse` records to the collection"
+    insertIntoparking_lots_generalCollection(objects: [parking_lots_generalInsertInput!]!): parking_lots_generalInsertResponse
+    "Updates zero or more records in the collection"
+    updatejurisdictionCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the critera"
+        filter: jurisdictionFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: jurisdictionUpdateInput!
+    ): jurisdictionUpdateResponse!
+    "Updates zero or more records in the collection"
+    updatemonthly_ratesCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the critera"
+        filter: monthly_ratesFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: monthly_ratesUpdateInput!
+    ): monthly_ratesUpdateResponse!
+    "Updates zero or more records in the collection"
+    updatemonthly_rates_typeCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the critera"
+        filter: monthly_rates_typeFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: monthly_rates_typeUpdateInput!
+    ): monthly_rates_typeUpdateResponse!
+    "Updates zero or more records in the collection"
+    updateparking_lots_accessCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the critera"
+        filter: parking_lots_accessFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: parking_lots_accessUpdateInput!
+    ): parking_lots_accessUpdateResponse!
+    "Updates zero or more records in the collection"
+    updateparking_lots_addressCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the critera"
+        filter: parking_lots_addressFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: parking_lots_addressUpdateInput!
+    ): parking_lots_addressUpdateResponse!
+    "Updates zero or more records in the collection"
+    updateparking_lots_generalCollection(
+        "The maximum number of records in the collection permitted to be affected"
+        atMost: Int! = 1,
+        "Restricts the mutation's impact to records matching the critera"
+        filter: parking_lots_generalFilter,
+        "Fields that are set will be updated for all records matching the `filter`"
+        set: parking_lots_generalUpdateInput!
+    ): parking_lots_generalUpdateResponse!
+}
+
+type PageInfo {
+    endCursor: String
+    hasNextPage: Boolean!
+    hasPreviousPage: Boolean!
+    startCursor: String
+}
+
+"The root type for querying data"
+type Query {
+    "A pagable collection of type `jurisdiction`"
+    jurisdictionCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: jurisdictionFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [jurisdictionOrderBy!]
+    ): jurisdictionConnection
+    "A pagable collection of type `monthly_rates`"
+    monthly_ratesCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_ratesFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_ratesOrderBy!]
+    ): monthly_ratesConnection
+    "A pagable collection of type `monthly_rates_type`"
+    monthly_rates_typeCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_rates_typeFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_rates_typeOrderBy!]
+    ): monthly_rates_typeConnection
+    "A pagable collection of type `parking_lots_access`"
+    parking_lots_accessCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_accessFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_accessOrderBy!]
+    ): parking_lots_accessConnection
+    "A pagable collection of type `parking_lots_address`"
+    parking_lots_addressCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_addressFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_addressOrderBy!]
+    ): parking_lots_addressConnection
+    "A pagable collection of type `parking_lots_general`"
+    parking_lots_generalCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_generalFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_generalOrderBy!]
+    ): parking_lots_generalConnection
+}
+
+type jurisdiction {
+    exotic_tax: Float!
+    jurisdiction_id: Int!
+    jurisdiction_name: String!
+    jurisdiction_tax: Float!
+    parking_lots_addressCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_addressFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_addressOrderBy!]
+    ): parking_lots_addressConnection
+    terrain: String
+    transport_tax: Float!
+}
+
+type jurisdictionConnection {
+    edges: [jurisdictionEdge!]!
+    pageInfo: PageInfo!
+}
+
+type jurisdictionDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [jurisdiction!]!
+}
+
+type jurisdictionEdge {
+    cursor: String!
+    node: jurisdiction!
+}
+
+type jurisdictionInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [jurisdiction!]!
+}
+
+type jurisdictionUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [jurisdiction!]!
+}
+
+type monthly_rates {
+    activation_fee: String
+    address_id: Int
+    base_price: String
+    monthly_rate_id: Int!
+    monthly_rates_type: monthly_rates_type
+    parking_lots_address: parking_lots_address
+    rate_days: [Int]
+    rate_details: String
+    rate_hour_from: Int!
+    rate_hour_to: Int!
+    rate_type_id: Int
+}
+
+type monthly_ratesConnection {
+    edges: [monthly_ratesEdge!]!
+    pageInfo: PageInfo!
+}
+
+type monthly_ratesDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates!]!
+}
+
+type monthly_ratesEdge {
+    cursor: String!
+    node: monthly_rates!
+}
+
+type monthly_ratesInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates!]!
+}
+
+type monthly_ratesUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates!]!
+}
+
+type monthly_rates_type {
+    monthly_ratesCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_ratesFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_ratesOrderBy!]
+    ): monthly_ratesConnection
+    rate_details: String
+    rate_name: String
+    rate_type_id: Int!
+}
+
+type monthly_rates_typeConnection {
+    edges: [monthly_rates_typeEdge!]!
+    pageInfo: PageInfo!
+}
+
+type monthly_rates_typeDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_type!]!
+}
+
+type monthly_rates_typeEdge {
+    cursor: String!
+    node: monthly_rates_type!
+}
+
+type monthly_rates_typeInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_type!]!
+}
+
+type monthly_rates_typeUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [monthly_rates_type!]!
+}
+
+type parking_lots_access {
+    access_id: Int!
+    gate_hour_from: Int!
+    gate_hour_to: Int!
+    gated: Boolean!
+    parking_lot_id: Int!
+    parking_lots_general: parking_lots_general
+    requires_ac: Boolean!
+    requires_fob: Boolean!
+}
+
+type parking_lots_accessConnection {
+    edges: [parking_lots_accessEdge!]!
+    pageInfo: PageInfo!
+}
+
+type parking_lots_accessDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_access!]!
+}
+
+type parking_lots_accessEdge {
+    cursor: String!
+    node: parking_lots_access!
+}
+
+type parking_lots_accessInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_access!]!
+}
+
+type parking_lots_accessUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_access!]!
+}
+
+type parking_lots_address {
+    address_id: Int!
+    jurisdiction: jurisdiction
+    jurisdiction_id: Int
+    monthly_ratesCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: monthly_ratesFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [monthly_ratesOrderBy!]
+    ): monthly_ratesConnection
+    parking_lot_id: Int
+    parking_lots_general: parking_lots_general
+    street_name: String
+    street_number: Int
+    street_postal_code: String
+}
+
+type parking_lots_addressConnection {
+    edges: [parking_lots_addressEdge!]!
+    pageInfo: PageInfo!
+}
+
+type parking_lots_addressDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_address!]!
+}
+
+type parking_lots_addressEdge {
+    cursor: String!
+    node: parking_lots_address!
+}
+
+type parking_lots_addressInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_address!]!
+}
+
+type parking_lots_addressUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_address!]!
+}
+
+type parking_lots_general {
+    parking_lot_id: Int!
+    parking_lot_name: String
+    parking_lot_number: Int
+    parking_lots_access: parking_lots_access
+    parking_lots_addressCollection(
+        "Query values in the collection after the provided cursor"
+        after: Cursor,
+        "Query values in the collection before the provided cursor"
+        before: Cursor,
+        "Filters to apply to the results set when querying from the collection"
+        filter: parking_lots_addressFilter,
+        "Query the first `n` records in the collection"
+        first: Int,
+        "Query the last `n` records in the collection"
+        last: Int,
+        "Sort order to apply to the collection"
+        orderBy: [parking_lots_addressOrderBy!]
+    ): parking_lots_addressConnection
+}
+
+type parking_lots_generalConnection {
+    edges: [parking_lots_generalEdge!]!
+    pageInfo: PageInfo!
+}
+
+type parking_lots_generalDeleteResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_general!]!
+}
+
+type parking_lots_generalEdge {
+    cursor: String!
+    node: parking_lots_general!
+}
+
+type parking_lots_generalInsertResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_general!]!
+}
+
+type parking_lots_generalUpdateResponse {
+    "Count of the records impacted by the mutation"
+    affectedCount: Int!
+    "Array of records impacted by the mutation"
+    records: [parking_lots_general!]!
+}
+
+"Defines a per-field sorting order"
+enum OrderByDirection {
+    "Ascending order, nulls first"
+    AscNullsFirst
+    "Ascending order, nulls last"
+    AscNullsLast
+    "Descending order, nulls first"
+    DescNullsFirst
+    "Descending order, nulls last"
+    DescNullsLast
+}
+
+scalar BigInt
+
+scalar Cursor
+
+scalar Date
+
+scalar Datetime
+
+scalar JSON
+
+scalar Time
+
+scalar UUID
+
+"Boolean expression comparing fields on type \"BigInt\""
+input BigIntFilter {
+    eq: BigInt
+    gt: BigInt
+    gte: BigInt
+    in: [BigInt!]
+    lt: BigInt
+    lte: BigInt
+    neq: BigInt
+}
+
+"Boolean expression comparing fields on type \"Boolean\""
+input BooleanFilter {
+    eq: Boolean
+    gt: Boolean
+    gte: Boolean
+    in: [Boolean!]
+    lt: Boolean
+    lte: Boolean
+    neq: Boolean
+}
+
+"Boolean expression comparing fields on type \"Date\""
+input DateFilter {
+    eq: Date
+    gt: Date
+    gte: Date
+    in: [Date!]
+    lt: Date
+    lte: Date
+    neq: Date
+}
+
+"Boolean expression comparing fields on type \"Datetime\""
+input DatetimeFilter {
+    eq: Datetime
+    gt: Datetime
+    gte: Datetime
+    in: [Datetime!]
+    lt: Datetime
+    lte: Datetime
+    neq: Datetime
+}
+
+"Boolean expression comparing fields on type \"Float\""
+input FloatFilter {
+    eq: Float
+    gt: Float
+    gte: Float
+    in: [Float!]
+    lt: Float
+    lte: Float
+    neq: Float
+}
+
+"Boolean expression comparing fields on type \"Int\""
+input IntFilter {
+    eq: Int
+    gt: Int
+    gte: Int
+    in: [Int!]
+    lt: Int
+    lte: Int
+    neq: Int
+}
+
+"Boolean expression comparing fields on type \"JSON\""
+input JSONFilter {
+    eq: JSON
+    neq: JSON
+}
+
+"Boolean expression comparing fields on type \"String\""
+input StringFilter {
+    eq: String
+    gt: String
+    gte: String
+    in: [String!]
+    lt: String
+    lte: String
+    neq: String
+}
+
+"Boolean expression comparing fields on type \"Time\""
+input TimeFilter {
+    eq: Time
+    gt: Time
+    gte: Time
+    in: [Time!]
+    lt: Time
+    lte: Time
+    neq: Time
+}
+
+"Boolean expression comparing fields on type \"UUID\""
+input UUIDFilter {
+    eq: UUID
+    in: [UUID!]
+    neq: UUID
+}
+
+input jurisdictionFilter {
+    exotic_tax: FloatFilter
+    jurisdiction_id: IntFilter
+    jurisdiction_name: StringFilter
+    jurisdiction_tax: FloatFilter
+    terrain: StringFilter
+    transport_tax: FloatFilter
+}
+
+input jurisdictionInsertInput {
+    exotic_tax: Float
+    jurisdiction_id: Int
+    jurisdiction_name: String
+    jurisdiction_tax: Float
+    terrain: String
+    transport_tax: Float
+}
+
+input jurisdictionOrderBy {
+    exotic_tax: OrderByDirection
+    jurisdiction_id: OrderByDirection
+    jurisdiction_name: OrderByDirection
+    jurisdiction_tax: OrderByDirection
+    terrain: OrderByDirection
+    transport_tax: OrderByDirection
+}
+
+input jurisdictionUpdateInput {
+    exotic_tax: Float
+    jurisdiction_id: Int
+    jurisdiction_name: String
+    jurisdiction_tax: Float
+    terrain: String
+    transport_tax: Float
+}
+
+input monthly_ratesFilter {
+    activation_fee: StringFilter
+    address_id: IntFilter
+    base_price: StringFilter
+    monthly_rate_id: IntFilter
+    rate_details: StringFilter
+    rate_hour_from: IntFilter
+    rate_hour_to: IntFilter
+    rate_type_id: IntFilter
+}
+
+input monthly_ratesInsertInput {
+    activation_fee: String
+    address_id: Int
+    base_price: String
+    rate_details: String
+    rate_hour_from: Int
+    rate_hour_to: Int
+    rate_type_id: Int
+}
+
+input monthly_ratesOrderBy {
+    activation_fee: OrderByDirection
+    address_id: OrderByDirection
+    base_price: OrderByDirection
+    monthly_rate_id: OrderByDirection
+    rate_days: OrderByDirection
+    rate_details: OrderByDirection
+    rate_hour_from: OrderByDirection
+    rate_hour_to: OrderByDirection
+    rate_type_id: OrderByDirection
+}
+
+input monthly_ratesUpdateInput {
+    activation_fee: String
+    address_id: Int
+    base_price: String
+    rate_details: String
+    rate_hour_from: Int
+    rate_hour_to: Int
+    rate_type_id: Int
+}
+
+input monthly_rates_typeFilter {
+    rate_details: StringFilter
+    rate_name: StringFilter
+    rate_type_id: IntFilter
+}
+
+input monthly_rates_typeInsertInput {
+    rate_details: String
+    rate_name: String
+}
+
+input monthly_rates_typeOrderBy {
+    rate_details: OrderByDirection
+    rate_name: OrderByDirection
+    rate_type_id: OrderByDirection
+}
+
+input monthly_rates_typeUpdateInput {
+    rate_details: String
+    rate_name: String
+}
+
+input parking_lots_accessFilter {
+    access_id: IntFilter
+    gate_hour_from: IntFilter
+    gate_hour_to: IntFilter
+    gated: BooleanFilter
+    parking_lot_id: IntFilter
+    requires_ac: BooleanFilter
+    requires_fob: BooleanFilter
+}
+
+input parking_lots_accessInsertInput {
+    gate_hour_from: Int
+    gate_hour_to: Int
+    gated: Boolean
+    parking_lot_id: Int
+    requires_ac: Boolean
+    requires_fob: Boolean
+}
+
+input parking_lots_accessOrderBy {
+    access_id: OrderByDirection
+    gate_hour_from: OrderByDirection
+    gate_hour_to: OrderByDirection
+    gated: OrderByDirection
+    parking_lot_id: OrderByDirection
+    requires_ac: OrderByDirection
+    requires_fob: OrderByDirection
+}
+
+input parking_lots_accessUpdateInput {
+    gate_hour_from: Int
+    gate_hour_to: Int
+    gated: Boolean
+    parking_lot_id: Int
+    requires_ac: Boolean
+    requires_fob: Boolean
+}
+
+input parking_lots_addressFilter {
+    address_id: IntFilter
+    jurisdiction_id: IntFilter
+    parking_lot_id: IntFilter
+    street_name: StringFilter
+    street_number: IntFilter
+    street_postal_code: StringFilter
+}
+
+input parking_lots_addressInsertInput {
+    jurisdiction_id: Int
+    parking_lot_id: Int
+    street_name: String
+    street_number: Int
+    street_postal_code: String
+}
+
+input parking_lots_addressOrderBy {
+    address_id: OrderByDirection
+    jurisdiction_id: OrderByDirection
+    parking_lot_id: OrderByDirection
+    street_name: OrderByDirection
+    street_number: OrderByDirection
+    street_postal_code: OrderByDirection
+}
+
+input parking_lots_addressUpdateInput {
+    jurisdiction_id: Int
+    parking_lot_id: Int
+    street_name: String
+    street_number: Int
+    street_postal_code: String
+}
+
+input parking_lots_generalFilter {
+    parking_lot_id: IntFilter
+    parking_lot_name: StringFilter
+    parking_lot_number: IntFilter
+}
+
+input parking_lots_generalInsertInput {
+    parking_lot_name: String
+    parking_lot_number: Int
+}
+
+input parking_lots_generalOrderBy {
+    parking_lot_id: OrderByDirection
+    parking_lot_name: OrderByDirection
+    parking_lot_number: OrderByDirection
+}
+
+input parking_lots_generalUpdateInput {
+    parking_lot_name: String
+    parking_lot_number: Int
+}

@@ -1,0 +1,11 @@
+{
+    parking_lots_generalCollection {
+        edges {
+            node {
+                parking_lot_id
+                parking_lot_name
+            }
+            cursor
+        }
+    }
+}
