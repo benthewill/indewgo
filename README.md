@@ -46,4 +46,4 @@ At the moment, it is intended to have the following features **before shipping t
 >
 >**Back-end** :  supabase
 >
->**Tools** : DataGrip Webstorm
+>**Tools** : DataGrip, Webstorm, Jetbrains Space
