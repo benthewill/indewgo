@@ -1,0 +1,11 @@
+mutation ($newName: String!, $newNumber: Int!) {
+    insertIntoparking_lots_generalCollection(
+        objects: { parking_lot_name: $newName, parking_lot_number: $newNumber }
+    ) {
+        records {
+            parking_lot_id
+            parking_lot_name
+            parking_lot_number
+        }
+    }
+}

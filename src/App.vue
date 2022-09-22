@@ -1,3 +1,21 @@
+<script setup>
+  import { createClient, provideClient } from '@urql/vue';
+  import simpleInsert from "./components/simpleInsert.vue";
+
+  const urqlClient = createClient({
+    url: 'https://rlwhlhzwqjpgcskfmeik.supabase.co/graphql/v1',
+    fetchOptions: () => {
+      return {
+        headers: {
+          apiKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJsd2hsaHp3cWpwZ2Nza2ZtZWlrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY2MTIwMjk2MywiZXhwIjoxOTc2Nzc4OTYzfQ.3ogB3rHmLDlbWL7lkTzlcRrxtDzy7AIcjxfmwhg-pw8',
+          authorization: 'Bearer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJsd2hsaHp3cWpwZ2Nza2ZtZWlrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY2MTIwMjk2MywiZXhwIjoxOTc2Nzc4OTYzfQ.3ogB3rHmLDlbWL7lkTzlcRrxtDzy7AIcjxfmwhg-pw8'
+        }
+      }
+  }
+  })
+  provideClient(urqlClient)
+</script>
+
 <script xmlns="http://www.w3.org/1999/html">
   export default {
     props: ['contents'],
@@ -30,6 +48,11 @@
     </section>
   </div>
 
+  <section class="section">
+    <simpleInsert></simpleInsert>
+  </section>
+
+
   <section class="section" v-if="lots">
     <div class="card is-family-monospace" v-for="row in lots">
       <div class="card-header">
@@ -41,11 +64,6 @@
       </div>
       <div class="card-content">
         <p class="title is-4">{{row.node.parking_lot_name}}</p>
-        <p>Gated : {{row.node.parking_lots_access.gated}}</p>
-        <p>Access :
-          <span v-if="row.node.parking_lots_access.requires_ac = true">Access Card</span> -
-          <span v-if="row.node.parking_lots_access.requires_fob = true">FOB</span><br>
-        </p>
 
         <div v-for="address in row.node.parking_lots_addressCollection.edges">
           <p class="is-size-5 has-text-weight-bold is-family-monospace"><br>
@@ -56,10 +74,10 @@
 
           <p class="is-size-6 has-text-weight-medium" v-if="address.node.monthly_ratesCollection.edges.length">Monthly Rates: <br></p>
           <p class="is-size-6 has-text-weight-medium" v-if="!address.node.monthly_ratesCollection.edges.length">No Monthly Rates available for this Lot.<br></p>
-          <ul  v-for="rate in address.node.monthly_ratesCollection.edges">
+          <ul v-for="rate in address.node.monthly_ratesCollection.edges">
             <li>
               <p>
-                - <span class="has-text-weight-semibold">Base Price: </span> $ {{rate.node.base_price}} - {{rate.node.rate_details}} {{rate.node.monthly_rates_type.rate_name}}
+                - <span class="has-text-weight-semibold">Base Price: </span> $ {{rate.node.base_price}} - {{rate.node.monthly_rates_type.rate_name}} {{rate.node.monthly_rates_type.rate_type_details}}
               </p>
             </li>
           </ul>
