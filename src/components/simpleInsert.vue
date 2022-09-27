@@ -1,57 +1,16 @@
 <script>
-  import {gql, useMutation, useQuery} from '@urql/vue';
-  import {reactive, ref} from 'vue';
+import {useMutation, useQuery} from '@urql/vue';
+import {reactive, ref} from 'vue';
 
-  const addLot = gql`
-      mutation ($newName: String!, $newNumber: Int!) {
-        insertIntoparking_lots_generalCollection(
-            objects: { parking_lot_name: $newName, parking_lot_number: $newNumber }
-        ) {
-            records {
-                parking_lot_id
-                parking_lot_name
-                parking_lot_number
-            }
-        }
-    }
-    `
+import * as gqlquery from '../../graphql/queries/queries.js'
+import * as gqlmutation from '../../graphql/mutations/mutations.js'
 
-  const respectiveAddresses = gql`
-      mutation ($addresses: [parking_lots_addressInsertInput!]!) {
-          insertIntoparking_lots_addressCollection(objects: $addresses){
-              records{
-                  street_number
-                  street_name
-                  street_postal_code
-              }
-          }
-      }
-      `
-
-  const getCities = gql`
-      query getCities {
-        city_detailsCollection {
-          edges {
-            node {
-              city_id
-              city_name
-              provincial_transport_tax
-              goods_and_services_tax
-              additional_tax
-              patrol_jurisdiction
-            }
-          }
-        }
-      }
-      `
-
-  export default{
+export default{
     setup() {
-      const addingLot = useMutation(addLot)
-      const addingAddress = useMutation(respectiveAddresses)
+      const addingLot = useMutation(gqlmutation.addLotGeneral)
+      const addingAddress = useMutation(gqlmutation.addAddressDetails)
 
-      const queryCities = useQuery({query: getCities})
-
+      const queryCities = useQuery({query: gqlquery.getCitiesDetails})
 
       const newLotName = ref('')
       const newLotNum = ref('')

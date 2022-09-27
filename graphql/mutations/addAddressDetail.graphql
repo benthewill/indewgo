@@ -1,0 +1,9 @@
+mutation ($addresses: [parking_lots_addressInsertInput!]!) {
+    insertIntoparking_lots_addressCollection(objects: $addresses){
+        records{
+            street_number
+            street_name
+            street_postal_code
+        }
+    }
+}

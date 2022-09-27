@@ -1,5 +1,5 @@
-query getLots{
-    parking_lots_generalCollection {
+query getLots ($after: Cursor ){
+    parking_lots_generalCollection (after: $after orderBy: {parking_lot_number: AscNullsFirst}){
         edges {
             node {
                 parking_lot_name
